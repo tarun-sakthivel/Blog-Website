@@ -103,7 +103,7 @@ class _MyblogsState extends State<Myblogs> {
                         child: Container(
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              border: Border.all(color: kOrangeColor),
+                              // border: Border.all(color: kOrangeColor),
                               borderRadius: BorderRadius.circular(15)),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

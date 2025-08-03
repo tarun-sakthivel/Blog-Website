@@ -157,23 +157,19 @@ class Maintree extends StatelessWidget {
 
   final ValueNotifier<int> selectedIndex = ValueNotifier<int>(0);
 
-  final List<Widget> pages = [
-    HomePage(),
-    Myblogs(),
-    Center(child: Text("About Page", style: TextStyle(fontSize: 24))),
-  ];
+  final List<Widget> pages = [HomePage(), Myblogs(), About()];
 
   @override
   Widget build(BuildContext context) {
     // Dispatch the event to load blogs
     context.read<BlogFetchBloc>().add(LoadBlogs());
-
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         children: [
           WebNavbar(
-            selectedIndex: selectedIndex,
+            selectedIndex: selectedIndex,screenWidth: screenWidth,
           ),
           Expanded(
             child: ValueListenableBuilder<int>(

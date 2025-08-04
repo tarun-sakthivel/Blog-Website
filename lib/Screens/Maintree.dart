@@ -1,3 +1,4 @@
+import 'package:bolg_website/Bloc/bloc/home_bloc_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bolg_website/Screens/About.dart';
@@ -148,7 +149,6 @@ import 'package:bolg_website/Bloc/bloc/blog_fetch_bloc.dart';
 
 import 'package:bolg_website/Widgets/navBar.dart';
 
-
 class Maintree extends StatelessWidget {
   Maintree({super.key});
 
@@ -160,13 +160,15 @@ class Maintree extends StatelessWidget {
   Widget build(BuildContext context) {
     // Dispatch the event to load blogs
     context.read<BlogFetchBloc>().add(LoadBlogs());
+//context.read<HomeBlocBloc>().add(FetchBloc());
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         children: [
           WebNavbar(
-            selectedIndex: selectedIndex,screenWidth: screenWidth,
+            selectedIndex: selectedIndex,
+            screenWidth: screenWidth,
           ),
           Expanded(
             child: ValueListenableBuilder<int>(

@@ -1,4 +1,3 @@
-
 import 'package:bolg_website/Screens/Maintree.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
@@ -61,6 +60,7 @@ class CreateBlog extends StatelessWidget {
             SizedBox(
               height: 200,
               child: TextField(
+                textAlign: TextAlign.start,
                 controller: blogWords,
                 maxLines: null,
                 expands: true,

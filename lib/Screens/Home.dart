@@ -1,6 +1,8 @@
+import 'package:bolg_website/Bloc/bloc/home_bloc_bloc.dart';
 import 'package:bolg_website/constants/text.dart';
 import 'package:bolg_website/firebasefunctions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -48,11 +50,78 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    //   return BlocBuilder<HomeBlocBloc, HomeBlocState>(builder: (context, state) {
+    //     if (state is Loading) {
+    //       return Center(child: CircularProgressIndicator());
+    //     } else if (state is Successful) {
+    //       return Padding(
+    //         padding: EdgeInsets.all(10),
+    //         child: Stack(
+    //           children: [
+    //             screenWidth < 600
+    //                 ? Align(
+    //                     alignment: Alignment(0, -1),
+    //                     child: Column(
+    //                       children: [
+    //                         Image.asset(
+    //                           'assets/images/fm2.png',
+    //                         ),
+    //                         SizedBox(
+    //                           height: 5,
+    //                         ),
+    //                         GestureDetector(
+    //                           onTap: () {
+    //                             _subscribe(context);
+    //                           },
+    //                           child: Container(
+    //                             width: 160,
+    //                             decoration: BoxDecoration(
+    //                               color: Colors.orange,
+    //                               border: Border.all(
+    //                                   color: const Color.fromARGB(
+    //                                       255, 255, 255, 255),
+    //                                   width: 1),
+    //                               borderRadius: BorderRadius.circular(15),
+    //                             ),
+    //                             child: Padding(
+    //                               padding: const EdgeInsets.all(8.0),
+    //                               child: Row(
+    //                                 mainAxisAlignment:
+    //                                     MainAxisAlignment.spaceEvenly,
+    //                                 children: [
+    //                                   Text("Get notified",
+    //                                       style: knormaltextStyle.copyWith(
+    //                                         fontWeight: FontWeight.bold,
+    //                                         color: const Color.fromARGB(
+    //                                             255, 255, 255, 255),
+    //                                         fontSize: 16,
+    //                                       )),
+    //                                   Icon(Icons.notification_add,
+    //                                       color: const Color.fromARGB(
+    //                                           255, 255, 255, 255)),
+    //                                 ],
+    //                               ),
+    //                             ),
+    //                           ),
+    //                         ),
+    //                       ],
+    //                     ),
+    //                   )
+    //                 : Align(
+    //                     alignment: Alignment(0, -1),
+    //                     child: Image.asset(
+    //                       'assets/images/fm1.png',
+    //                     ),
+    //                   )
+    //           ],
+    //         ),
+    //       );
+    //     }
     return Padding(
       padding: EdgeInsets.all(10),
       child: Stack(
         children: [
-          screenWidth < 600
+          screenWidth < 500
               ? Align(
                   alignment: Alignment(0, -1),
                   child: Column(

@@ -1,16 +1,6 @@
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:image_picker/image_picker.dart';
-import '../Models/BlogModel.dart';
-import 'dart:typed_data';
-import 'package:image_picker/image_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
-Uint8List? _imageBytes;
-String? _imageUrl;
+import '../Models/BlogModel.dart';
 
 class FirebaseService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -24,6 +14,16 @@ class FirebaseService {
       'Content': blog.content,
       'ImageUrl': blog.imageUrl,
       'Time': blog.createdAt,
+    });
+  }
+
+  Future<void> addSubscriber(String name, String email) async {
+    final docRef = _firestore.collection('Subscriber').doc();
+
+    await docRef.set({
+      'id': docRef.id,
+      'Name': name,
+      'Email': email,
     });
   }
 

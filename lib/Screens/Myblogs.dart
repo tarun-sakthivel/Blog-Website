@@ -1,9 +1,9 @@
 import 'package:bolg_website/Bloc/bloc/blog_fetch_bloc.dart';
 import 'package:bolg_website/Screens/blogDisplay.dart';
-import 'package:bolg_website/constants/colors.dart';
+
 import 'package:bolg_website/constants/text.dart';
 import 'package:flutter/material.dart';
-import 'package:bolg_website/Models/BlogModel.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart'; // Ensure path is correct
 
@@ -79,14 +79,14 @@ class _MyblogsState extends State<Myblogs> {
           child: SizedBox(
             height: boxHeight,
             width: double.infinity,
-            child: screenWidth < 550
+            child: screenWidth < 600
                 ? GridView.builder(
                     padding: EdgeInsets.all(20),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount:
                           MediaQuery.of(context).size.width > 600 ? 3 : 1,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20,
+                      crossAxisSpacing: screenWidth < 600 ? 10 : 20,
+                      mainAxisSpacing: screenWidth < 600 ? 10 : 20,
                       childAspectRatio: 0.7,
                     ),
                     itemCount: state.blogs.length,
@@ -95,9 +95,12 @@ class _MyblogsState extends State<Myblogs> {
                       return GestureDetector(
                         onTap: () {
                           // Placeholder for navigation
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                                content: Text('Tapped on "${blog.title}"')),
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  Blogdisplay(blog: state.blogs[index]),
+                            ),
                           );
                         },
                         child: Container(

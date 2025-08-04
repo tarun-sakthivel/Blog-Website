@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bolg_website/Screens/About.dart';
 import 'package:bolg_website/Screens/Home.dart';
 import 'package:bolg_website/Screens/Myblogs.dart';
-import 'package:bolg_website/constants/text.dart';
+
 import 'package:bolg_website/Bloc/bloc/blog_fetch_bloc.dart';
 
 // class Maintree extends StatefulWidget {
@@ -145,12 +145,9 @@ import 'package:bolg_website/Bloc/bloc/blog_fetch_bloc.dart';
 //     );
 //   }
 // }
-import 'package:flutter/material.dart';
-import 'package:bolg_website/Screens/Home.dart';
-import 'package:bolg_website/Screens/Myblogs.dart';
+
 import 'package:bolg_website/Widgets/navBar.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bolg_website/Bloc/bloc/blog_fetch_bloc.dart';
+
 
 class Maintree extends StatelessWidget {
   Maintree({super.key});
